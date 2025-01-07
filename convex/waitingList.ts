@@ -41,7 +41,27 @@ export const getQueuePosition = query({
                 ...entry,
                 position: peopleAhead + 1
             }
-
-        if (!entry) return null;
     }
-})
+});
+
+export const releaseTicket = mutation({
+    args: {
+        eventId: v.id("events"),
+        waitingListId: v.id("waitingList"),
+    },
+    handler: async (ctx, { eventId, waitingListId }) => {
+        const entry = await ctx.db.get(waitingListId);
+
+        if (!entry || entry.status !== WAITING_LIST_STATUS.OFFERED) {
+            throw new Error("No valid ticket offer found");
+        }
+
+        // Mark the entry as expired
+        await ctx.db.patch(waitingListId, {
+            status: WAITING_LIST_STATUS.EXPIRED,
+        });
+
+        // Process queue to offer ticket to next person
+        // await processQueue(ctx, { eventId });
+    },
+});

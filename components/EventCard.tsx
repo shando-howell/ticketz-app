@@ -7,6 +7,7 @@ import { useQuery } from "convex/react";
 import { api } from "@/convex/_generated/api";
 import { useStorageUrl } from "@/lib/utils";
 import Image from "next/image";
+import PurchaseTicket from "./PurchaseTicket";
 import { StarIcon, MapPin, CalendarDays, Ticket, PencilIcon, Check, XCircle, CircleArrowRight, LoaderCircle } from "lucide-react";
 
 const EventCard = ({ eventId }: { eventId: Id<"events"> }) => {
