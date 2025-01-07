@@ -5,6 +5,7 @@ import { ConvexClientProvider } from "@/components/convexClientProvider";
 import SyncUserWithConvex from "@/components/SyncUserWithConvex";
 import Header from "@/components/Header";
 import "./globals.css";
+import { Toaster } from "@/components/ui/toaster";
 
 export const metadata: Metadata = {
   title: "Ticketz",
@@ -24,6 +25,7 @@ export default function RootLayout({
             <Header/>
             <SyncUserWithConvex />
             {children}
+            <Toaster />
           </ClerkProvider>
         </ConvexClientProvider>
       </body>
