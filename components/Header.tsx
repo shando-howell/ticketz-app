@@ -10,13 +10,14 @@ const Header = () => {
         <div className="flex flex-col lg:flex-row items-center gap-4 p-4">
             <div className="flex items-center justify-between w-full lg:w-auto">
                 <Link href="/" className="font-bold shrink-0">
-                    <Image
+                    {/* <Image
                         src={logo}
                         alt="logo"
                         width={100}
                         height={100}
                         className="w-24 lg:w-28"
-                    />
+                    /> */}
+                    <h1 className="text-blue-600 font-extrabold">TICKETZ</h1>
                 </Link>
 
                 <div className="lg:hidden">
